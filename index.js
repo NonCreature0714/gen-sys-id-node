@@ -16,6 +16,7 @@ var ifs = {
 
 var sysId = "";
 sysId = guid();
+
 console.log('sysId: ' + sysId);
 
 fs.readFile('/sys/class/net/eth0/address', 'utf8', (err, data) => {
