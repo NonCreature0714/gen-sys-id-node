@@ -1,23 +1,9 @@
 const fs = require('fs');
-const hashval = 5000;
-const guid = () => {
-	const s4 = () => {
-	 return Math.floor((1 + Math.random()) * 0x100000)
-		.toString(16)
-		.substring(1);
-	}
-	return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-}
 
 var ifs = {
 	eth0: String,
 	wlan0: String
 };
-
-var sysId = "";
-sysId = guid();
-
-console.log('sysId: ' + sysId);
 
 fs.readFile('/sys/class/net/eth0/address', 'utf8', (err, data) => {
 	if(!err) {
