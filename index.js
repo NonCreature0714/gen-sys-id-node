@@ -5,21 +5,9 @@ var ifs = {
 	wlan0: String
 };
 
-fs.readFileSync('/sys/class/net/eth0/address', 'utf8', (err, data) => {
-	if(!err) {
-		ifs.eth0 = data;
-	} else {
-		return console.log('Error reading eth0 address: ' + err);
-	}
-});
+ifs.eth0 = fs.readFileSync('/sys/class/net/eth0/address', 'utf8');
 
-fs.readFileSync('/sys/class/net/wlan0/address', 'utf8', (err, data) => {
-	if(!err) {
-		ifs.wlan0 = data;
-	} else {
-		return console.log('Error reading eth0 address: ' + err);
-	}
-});
+ifs.wlan0 = fs.readFileSync('/sys/class/net/wlan0/address', 'utf8'); 
 
 console.log('ifs.eth0: ' + ifs.eth0);
 
